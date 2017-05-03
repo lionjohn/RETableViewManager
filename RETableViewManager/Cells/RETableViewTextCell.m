@@ -67,7 +67,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    if (selected) {
+        if (selected && self.item && !self.item.disableSelecteActive) {
         [self.textField becomeFirstResponder];
     }
 }
@@ -91,6 +91,27 @@
     self.textField.secureTextEntry = self.item.secureTextEntry;
     self.textField.clearButtonMode = self.item.clearButtonMode;
     self.textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
+    
+    //self.textField.borderStyle = self.item.borderStyle;
+    self.textField.textAlignment = NSTextAlignmentCenter;
+    
+    
+    
+    if (self.item.textFieldColor) {
+        self.textField.textColor = self.item.textFieldColor;
+    }
+    else
+    {
+        if (self.item.disableEditting) {
+            self.textField.textColor = [UIColor blackColor];
+        }
+        else
+        {
+            self.textField.textColor = [UIColor colorWithRed:0 green:122./255. blue:1.0 alpha:1.0];
+            self.textField.font = [UIFont boldSystemFontOfSize:17];
+        }
+    }
+
     
     self.actionBar.barStyle = self.item.keyboardAppearance == UIKeyboardAppearanceAlert ? UIBarStyleBlack : UIBarStyleDefault;
     
