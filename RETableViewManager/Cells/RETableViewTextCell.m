@@ -67,7 +67,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-        if (selected && self.item && !self.item.disableSelecteActive) {
+        if (selected && self.item && !self.item.disableSelectActive) {
         [self.textField becomeFirstResponder];
     }
 }
@@ -91,25 +91,27 @@
     self.textField.secureTextEntry = self.item.secureTextEntry;
     self.textField.clearButtonMode = self.item.clearButtonMode;
     self.textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
+
     
     //self.textField.borderStyle = self.item.borderStyle;
     self.textField.textAlignment = NSTextAlignmentCenter;
     
     
     
-    if (self.item.textFieldColor) {
-        self.textField.textColor = self.item.textFieldColor;
-    }
-    else
-    {
-        if (self.item.disableEditting) {
-            self.textField.textColor = [UIColor blackColor];
+    UIColor *valueColor = [self.item.styleAtrributes objectForKey:REAttributeTitleColor];
+    UIColor *valueFont = [self.item.styleAtrributes objectForKey:REAttributeValueFont];
+    
+    if (valueColor) {
+        self.textField.textColor = valueColor;
         }
         else
         {
             self.textField.textColor = [UIColor colorWithRed:0 green:122./255. blue:1.0 alpha:1.0];
             self.textField.font = [UIFont boldSystemFontOfSize:17];
         }
+    
+    if (valueFont) {
+        self.textField.font = valueFont;
     }
 
     

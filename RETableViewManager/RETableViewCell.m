@@ -114,6 +114,22 @@
     }
     if (self.textLabel.text.length == 0)
         self.textLabel.text = @" ";
+    
+    
+    UIColor *titleColor = [self.item.styleAtrributes objectForKey:REAttributeTitleColor];
+    UIColor *titleFont = [self.item.styleAtrributes objectForKey:REAttributeTitleFont];
+    UIColor *valueColor = [self.item.styleAtrributes objectForKey:REAttributeValueColor];
+    if (titleColor) {
+        self.textLabel.textColor = titleColor;
+    }
+    
+    if (titleFont) {
+        self.textLabel.font = titleFont;
+    }
+    
+    if (valueColor) {
+        self.detailTextLabel.textColor = valueColor;
+    }
 }
 
 - (void)cellDidDisappear

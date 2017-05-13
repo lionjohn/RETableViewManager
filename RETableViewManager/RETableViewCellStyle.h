@@ -35,6 +35,7 @@
 @property (strong, readwrite, nonatomic) NSMutableDictionary *backgroundImages;
 @property (strong, readwrite, nonatomic) NSMutableDictionary *selectedBackgroundImages;
 
+
 - (BOOL)hasCustomBackgroundImage;
 - (UIImage *)backgroundImageForCellType:(RETableViewCellType)cellType;
 - (void)setBackgroundImage:(UIImage *)image forCellType:(RETableViewCellType)cellType;

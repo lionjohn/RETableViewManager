@@ -54,6 +54,12 @@
     self.datePicker.maximumDate = self.item.dateTimeItem.maximumDate;
     self.datePicker.minuteInterval = self.item.dateTimeItem.minuteInterval;
     
+    UIColor *titleColor = [self.item.dateTimeItem.inlinePickerStyleAtrributes objectForKey:REAttributeTitleColor];
+    if (titleColor) {
+        [self.datePicker setValue:titleColor forKey:@"textColor"];
+    }
+    
+    
     self.enabled = self.item.enabled;
 }
 

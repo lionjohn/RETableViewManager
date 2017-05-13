@@ -29,12 +29,23 @@
 
 @class RETableViewSection;
 
+#define REAttributeTitleFont    @"REAttributeTitleFont"
+#define REAttributeTitleColor   @"REAttributeTitleColor"
+#define REAttributeValueFont    @"REAttributeValueFont"
+#define REAttributeValueColor   @"REAttributeValueColor"
+
+ 
+
+
+
+
 @interface RETableViewItem : NSObject
 
 @property (copy, readwrite, nonatomic) NSString *title;
 @property (strong, readwrite, nonatomic) UIImage *image;
 @property (strong, readwrite, nonatomic) UIImage *highlightedImage;
 @property (assign, readwrite, nonatomic) NSTextAlignment textAlignment;
+@property (strong, readwrite, nonatomic) NSDictionary  *styleAtrributes;
 @property (weak, readwrite, nonatomic) RETableViewSection *section;
 @property (copy, readwrite, nonatomic) NSString *detailLabelText;
 @property (assign, readwrite, nonatomic) UITableViewCellStyle style;

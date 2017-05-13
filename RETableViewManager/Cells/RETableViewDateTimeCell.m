@@ -118,6 +118,21 @@
     }
 
     self.enabled = self.item.enabled;
+    
+    UIColor *titleColor = [self.item.styleAtrributes objectForKey:REAttributeTitleColor];
+    UIColor *valueColor = [self.item.styleAtrributes objectForKey:REAttributeValueColor];
+    UIColor *valueFont = [self.item.styleAtrributes objectForKey:REAttributeValueFont];
+    
+    if (titleColor) {
+        self.textLabel.textColor = titleColor;
+    }
+    
+    if (valueColor) {
+        self.dateLabel.textColor = valueColor;
+    }
+    if (valueFont) {
+        self.dateLabel.font = valueFont;
+    }
 }
 
 - (void)layoutSubviews
@@ -154,7 +169,7 @@
         if (selected && self.item.inlineDatePicker && self.item.inlinePickerItem) {
             [self setSelected:NO animated:NO];
             [self.item deselectRowAnimated:NO];
-            self.dateLabel.textColor = [[self class] detailTextLabelColor];
+            //self.dateLabel.textColor = [[self class] detailTextLabelColor];
             NSIndexPath *indexPath = [self.item.inlinePickerItem.indexPath copy];
             [self.section removeItemAtIndex:self.item.inlinePickerItem.indexPath.row];
             self.item.inlinePickerItem = nil;

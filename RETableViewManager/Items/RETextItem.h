@@ -38,14 +38,8 @@
 @property (assign, readwrite, nonatomic) BOOL clearsOnBeginEditing;                   // default is NO which moves cursor to location clicked. if YES, all text cleared
 
 @property (assign, readwrite, nonatomic) NSUInteger charactersLimit;                   // characters limit
-
 @property (assign, nonatomic) UITextBorderStyle borderStyle;
-
-@property (assign, nonatomic) BOOL disableSelecteActive;
-
-@property (assign, nonatomic) BOOL disableEditting;
-
-@property (nonatomic, strong) UIColor *textFieldColor;
+@property (assign, nonatomic) BOOL disableSelectActive;
 
 
 

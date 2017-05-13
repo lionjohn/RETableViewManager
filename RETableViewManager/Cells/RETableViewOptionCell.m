@@ -64,7 +64,7 @@
 
 - (void)cellWillAppear
 {
-    //[super cellWillAppear];
+    [super cellWillAppear];
     self.accessoryType = self.item.accessoryType;
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.text = self.item.title.length == 0 ? @" " : self.item.title;
@@ -73,6 +73,19 @@
     
     if (!self.item.title) {
         self.valueLabel.textAlignment = NSTextAlignmentLeft;
+    }
+    
+ 
+    UIColor *valueColor = [self.item.styleAtrributes objectForKey:REAttributeValueColor];
+    UIColor *valueFont = [self.item.styleAtrributes objectForKey:REAttributeValueFont];
+ 
+    
+    if (valueColor) {
+        self.valueLabel.textColor = valueColor;
+    }
+    
+    if (valueFont) {
+        self.valueLabel.font = valueFont;
     }
     
     self.enabled = self.item.enabled;
